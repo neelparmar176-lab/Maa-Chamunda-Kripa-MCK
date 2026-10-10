@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>MCK Bhojan | Pure Vegetarian Artisanal Protein Bowls</title>
+  
+  <!-- SEO & Favicon -->
+  <meta name="description" content="MCK Bhojan (Maa Chamunda Kripa Bhojan) - Wholesome vegetarian protein bowls, slow-burning millets, and homestyle cooking in Goregaon East, Mumbai. FSSAI & Udyam registered.">
+  <link rel="icon" type="image/png" href="images/mck-logo.png">
+
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       GLOBAL FIXED 3D BOWL ANIMATION CANVAS (RUNS ACROSS THE ENTIRE WEBSITE)
+       ========================================================================== -->
+  <div class="fixed-canvas-container">
+    <canvas id="bowlCanvas"></canvas>
+    <div class="canvas-vignette"></div>
+  </div>
+
+  <!-- Mobile Drawer Backdrop -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-header">
+      <div class="brand-wrapper">
+        <img src="images/mck-logo.png" alt="MCK Bhojan" class="brand-logo">
+        <div class="brand-meta">
+          <h1><span class="brand-green">MCK</span> <span class="brand-gold">Bhojan</span></h1>
+          <span>Ghar Jaisa Roz</span>
+        </div>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close Navigation">✕</button>
+    </div>
+
+    <div class="drawer-links">
+      <a href="#hero" class="drawer-link">
+        <span>Home</span>
+        <span>→</span>
+      </a>
+      <a href="#anatomy" class="drawer-link">
+        <span>Deconstructed Bowl</span>
+        <span>→</span>
+      </a>
+      <a href="#menu" class="drawer-link">
+        <span>Signature Bowls (₹180–₹220)</span>
+        <span>→</span>
+      </a>
+      <a href="#philosophy" class="drawer-link">
+        <span>Our Kitchen</span>
+        <span>→</span>
+      </a>
+      <a href="#plans" class="drawer-link">
+        <span>Meal Plans</span>
+        <span>→</span>
+      </a>
+      <a href="#verification" class="drawer-link">
+        <span>Govt. Verification (FSSAI)</span>
+        <span>→</span>
+      </a>
+    </div>
+
+    <div class="drawer-footer">
+      <a href="https://wa.me/98819353450?text=Hello%20MCK%20Bhojan!%20I%20would%20like%20to%20order%20a%20fresh%20protein%20bowl%20today." target="_blank" class="btn btn-whatsapp" style="width: 100%;">
+        <span>Order on WhatsApp</span>
+      </a>
+      <p style="font-size: 0.76rem; color: var(--text-muted); text-align: center; margin-top: 12px; line-height: 1.4;">
+        📍 Nanubhai Parmar Chawl, Goregaon East, Mumbai
+      </p>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       STICKY HEADER & NAVBAR
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container nav-container">
+      
+      <!-- Brand Area -->
+      <a href="#hero" class="brand-wrapper">
+        <img src="images/mck-logo.png" alt="MCK Bhojan Logo" class="brand-logo">
+        <div class="brand-meta">
+          <h1><span class="brand-green">MCK</span> <span class="brand-gold">Bhojan</span></h1>
+          <span>Ghar Jaisa Roz • Pure Veg Protein</span>
+        </div>
+      </a>
+
+      <!-- Desktop & Laptop Navigation Links -->
+      <nav class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#anatomy">Deconstructed Bowl</a>
+        <a href="#menu">Signature Bowls</a>
+        <a href="#philosophy">Our Kitchen</a>
+        <a href="#plans">Meal Plans</a>
+        <a href="#verification">Govt. Verification</a>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <div class="status-pill">
+          <span class="badge-pulse"></span>
+          <span>Kitchen Active</span>
+        </div>
+        <a href="https://wa.me/98819353450?text=Hello%20MCK%20Bhojan!%20I%20would%20like%20to%20order%20a%20fresh%20protein%20bowl%20today." target="_blank" class="btn btn-whatsapp">
+          <span>Order on WhatsApp</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN SCROLLABLE CONTENT (ANIMATES BACKGROUND CANVAS AS YOU SCROLL)
+       ========================================================================== -->
+  <main class="site-content">
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-grid">
+        
+        <div class="hero-content">
+          <div class="eyebrow">
+            <span>🌿</span> 100% PURE VEG • FRESH DAILY • GHAR JAISA KHANA
+          </div>
+
+          <h2>
+            Wholesome Protein. <span>Slow Millets.</span><br>Real Homely Comfort.
+          </h2>
+
+          <p>
+            Wholesome vegetarian meal bowls crafted for your everyday work rhythm. 
+            Slow-marinated cottage cheese, fiber-rich ancient grains, and homestyle spices 
+            prepared fresh daily in Goregaon East.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#menu" class="btn btn-primary">
+              <span>View Signature Bowls</span>
+              <span>→</span>
+            </a>
+            <a href="https://wa.me/98819353450?text=Hello%20MCK%20Bhojan!%20Please%20share%20today's%20lunch%20menu." target="_blank" class="btn btn-secondary">
+              <span>Chat on WhatsApp</span>
+            </a>
+          </div>
+
+          <div class="hero-highlights">
+            <div class="highlight-item">
+              <span class="highlight-num">32g+</span>
+              <span class="highlight-label">Clean Protein / Bowl</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-num">₹180–₹220</span>
+              <span class="highlight-label">Everyday Pricing</span>
+            </div>
+            <div class="highlight-item">
+              <span class="highlight-num">100%</span>
+              <span class="highlight-label">Daily Fresh Prep</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual-card">
+          <div class="hero-floating-badge">
+            <div class="floating-icon">🔥</div>
+            <div class="floating-text">
+              <strong>Paneer Tikka Millet Bowl</strong>
+              <span>32g Protein • 540 kcal • Best Seller (₹210)</span>
+            </div>
+          </div>
+          <div class="scroll-hint-pill">
+            <span>Scroll or swipe to see the bowl explode ↓</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= DECONSTRUCTED BOWL ANATOMY SECTION ================= -->
+    <section class="anatomy-section" id="anatomy">
+      <div class="container">
+        
+        <div class="section-head">
+          <span class="eyebrow">DECONSTRUCTED ANATOMY</span>
+          <h2>Inside The <span>Perfect Bowl</span></h2>
+          <p>
+            As you scroll through our kitchen, watch the ingredients lift and explode in 3D mid-air. 
+            Pure whole-food nutrition, layer by layer.
+          </p>
+        </div>
+
+        <div class="anatomy-grid">
+          
+          <!-- Layer 1 -->
+          <article class="anatomy-card">
+            <span class="anatomy-badge">THE PROTEIN CORE</span>
+            <h3>Charred Paneer Tikka</h3>
+            <p>
+              Artisanal cottage cheese cubes marinated in hung curd, golden turmeric, and hand-roasted spices. Charred to a smoky perfection without artificial colorings.
+            </p>
+            <div class="anatomy-stat-row">
+              <span class="anatomy-stat">28g High-Quality Protein</span>
+              <span class="anatomy-stat">Bioavailable Calcium</span>
+            </div>
+          </article>
+
+          <!-- Layer 2 -->
+          <article class="anatomy-card">
+            <span class="anatomy-badge">SLOW-BURN GRAIN BASE</span>
+            <h3>Foxtail & Little Millets</h3>
+            <p>
+              Ancient Indian grains that release energy steadily. Low glycemic index to keep your blood glucose stable and eliminate post-lunch workplace fatigue.
+            </p>
+            <div class="anatomy-stat-row">
+              <span class="anatomy-stat">Zero White Rice / Maida</span>
+              <span class="anatomy-stat">Rich in Magnesium & Iron</span>
+            </div>
+          </article>
+
+          <!-- Layer 3 -->
+          <article class="anatomy-card">
+            <span class="anatomy-badge">PREBIOTIC FIBER & CRUNCH</span>
+            <h3>Spiced Chickpeas & Garden Peppers</h3>
+            <p>
+              Crunchy roasted kabuli chana paired with sautéed tri-color bell peppers and zucchini, providing vital micronutrients and digestive fiber.
+            </p>
+            <div class="anatomy-stat-row">
+              <span class="anatomy-stat">7.8g Gut Fiber</span>
+              <span class="anatomy-stat">Essential Zinc & Folate</span>
+            </div>
+          </article>
+
+          <!-- Layer 4 -->
+          <article class="anatomy-card">
+            <span class="anatomy-badge">HOMESTYLE PROBIOTIC FINISH</span>
+            <h3>Herb-Hung Curd Drizzle</h3>
+            <p>
+              Strained homestyle curd blended with freshly picked mint leaves, coriander, and roasted cumin. Light, cooling, and gut-friendly.
+            </p>
+            <div class="anatomy-stat-row">
+              <span class="anatomy-stat">Live Probiotics</span>
+              <span class="anatomy-stat">Digestive Cumin & Lemon</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SIGNATURE BOWL MENU (PRICED ₹180 TO ₹220) ================= -->
+    <section class="menu-section" id="menu">
+      <div class="container">
+        
+        <div class="section-head">
+          <span class="eyebrow">OUR DAILY BOWL MENU</span>
+          <h2>Balanced Food. <span>Everyday Value.</span></h2>
+          <p>
+            Wholesome vegetarian bowls priced accessibly from ₹180 to ₹220 for daily corporate and home nourishment.
+          </p>
+        </div>
+
+        <div class="bowl-grid">
+          
+          <!-- Bowl 1 -->
+          <article class="bowl-card">
+            <div class="bowl-card-image">
+              <span class="bowl-badge-top">SIGNATURE BESTSELLER</span>
+              <img src="images/paneer-bowl-hero.png" alt="Paneer Tikka Millet Power Bowl" loading="lazy">
+            </div>
+            <div class="bowl-card-body">
+              <span class="bowl-category-label">HIGH PROTEIN • DESI TANDOORI</span>
+              <h3>Paneer Tikka Power Bowl</h3>
+              <p class="bowl-desc">
+                Smoky spiced paneer cubes, steamed foxtail millets, crunchy chickpeas, charred peppers, and mint curd drizzle.
+              </p>
+              <div class="bowl-macro-row">
+                <span class="macro-chip protein">32g Protein</span>
+                <span class="macro-chip">540 kcal</span>
+                <span class="macro-chip">Low GI Millets</span>
+              </div>
+              <div class="bowl-card-footer">
+                <span class="bowl-price">₹210</span>
+                <a href="#" class="bowl-order-link menu-order-btn" data-bowl-title="Paneer Tikka Power Bowl" data-bowl-price="₹210">
+                  <span>Order on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bowl 2 -->
+          <article class="bowl-card">
+            <div class="bowl-card-image">
+              <span class="bowl-badge-top">HOMESTYLE AYURVEDIC</span>
+              <img src="images/bowl-sprouted-moong.jpg" alt="Desi Sprouted Moong & Paneer Bowl" loading="lazy">
+            </div>
+            <div class="bowl-card-body">
+              <span class="bowl-category-label">DESI COMFORT • LIGHT & DIGESTIBLE</span>
+              <h3>Desi Moong & Paneer Bowl</h3>
+              <p class="bowl-desc">
+                Slow-sprouted green moong, golden turmeric roasted paneer, baby spinach, pomegranate jewels, and cumin raita.
+              </p>
+              <div class="bowl-macro-row">
+                <span class="macro-chip protein">30g Protein</span>
+                <span class="macro-chip">460 kcal</span>
+                <span class="macro-chip">High Fiber</span>
+              </div>
+              <div class="bowl-card-footer">
+                <span class="bowl-price">₹190</span>
+                <a href="#" class="bowl-order-link menu-order-btn" data-bowl-title="Desi Moong & Paneer Bowl" data-bowl-price="₹190">
+                  <span>Order on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bowl 3 -->
+          <article class="bowl-card">
+            <div class="bowl-card-image">
+              <span class="bowl-badge-top">MEDITERRANEAN HARVEST</span>
+              <img src="images/bowl-chickpea-quinoa.jpg" alt="Mediterranean Chickpea & Tahini Bowl" loading="lazy">
+            </div>
+            <div class="bowl-card-body">
+              <span class="bowl-category-label">CLEAN EATS • HEART HEALTH</span>
+              <h3>Chickpea & Tahini Bowl</h3>
+              <p class="bowl-desc">
+                Crispy spiced roasted kabuli chana, zucchini, cherry tomatoes, warm quinoa bed, creamy hummus, and tahini.
+              </p>
+              <div class="bowl-macro-row">
+                <span class="macro-chip protein">22g Protein</span>
+                <span class="macro-chip">480 kcal</span>
+                <span class="macro-chip">Iron Rich</span>
+              </div>
+              <div class="bowl-card-footer">
+                <span class="bowl-price">₹180</span>
+                <a href="#" class="bowl-order-link menu-order-btn" data-bowl-title="Chickpea & Tahini Bowl" data-bowl-price="₹180">
+                  <span>Order on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Bowl 4 -->
+          <article class="bowl-card">
+            <div class="bowl-card-image">
+              <span class="bowl-badge-top">PLANT PROTEIN POWER</span>
+              <img src="images/bowl-tofu-edamame.jpg" alt="Smoky Tofu & Edamame Quinoa Bowl" loading="lazy">
+            </div>
+            <div class="bowl-card-body">
+              <span class="bowl-category-label">ORGANIC SOY • GREEN POWER</span>
+              <h3>Smoky Tofu & Edamame Bowl</h3>
+              <p class="bowl-desc">
+                Golden grilled organic tofu, tender steamed edamame, tri-color quinoa, charred peppers, avocado, and toasted sesame drizzle.
+              </p>
+              <div class="bowl-macro-row">
+                <span class="macro-chip protein">28g Protein</span>
+                <span class="macro-chip">490 kcal</span>
+                <span class="macro-chip">Complete Amino</span>
+              </div>
+              <div class="bowl-card-footer">
+                <span class="bowl-price">₹220</span>
+                <a href="#" class="bowl-order-link menu-order-btn" data-bowl-title="Smoky Tofu & Edamame Bowl" data-bowl-price="₹220">
+                  <span>Order on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= PHILOSOPHY / WHY MCK ================= -->
+    <section class="why-section" id="philosophy">
+      <div class="container">
+        
+        <div class="section-head">
+          <span class="eyebrow">OUR KITCHEN PROMISE</span>
+          <h2>Wholesome Nutrition. <span>Ghar Jaisa Swad.</span></h2>
+          <p>We cook everyday food with integrity, mindful nutrition, and uncompromised hygiene.</p>
+        </div>
+
+        <div class="why-grid">
+          
+          <div class="why-card">
+            <div class="why-icon">🧀</div>
+            <h3>Pure Whole Proteins</h3>
+            <p>
+              Real vegetarian proteins extracted from fresh malai paneer, organic tofu, and slow-sprouted pulses. No synthetic protein powders.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🌾</div>
+            <h3>Ancient Millets</h3>
+            <p>
+              Foxtail and Little millets provide complex carbohydrates that prevent post-lunch sugar spikes and maintain sustained focus at work.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🫒</div>
+            <h3>Cold-Pressed Spices & Ghee</h3>
+            <p>
+              Seasoned with traditional cold-pressed mustard oil, aromatic cumin, and pure desi ghee in measured homestyle quantities.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon">🍱</div>
+            <h3>Fresh Daily Prep</h3>
+            <p>
+              Cooked fresh every morning in Goregaon East and packed in 100% biodegradable bagasse bowls for pristine temperature retention.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SUBSCRIPTION PLANS ================= -->
+    <section class="plans-section" id="plans">
+      <div class="container">
+        
+        <div class="section-head">
+          <span class="eyebrow">FLEXIBLE WORKWEEK NUTRITION</span>
+          <h2>Meal <span>Subscriptions</span></h2>
+          <p>Scheduled daily lunch delivery directly to your desk or home in Mumbai.</p>
+        </div>
+
+        <div class="plans-grid">
+          
+          <!-- Plan 1 -->
+          <div class="plan-card">
+            <div class="plan-head">
+              <h3 class="plan-name">Daily Trial Bowl</h3>
+              <p class="plan-desc">Experience our signature flavours with a single meal</p>
+              <div class="plan-price-wrap">
+                <span class="plan-price">₹199</span>
+                <span class="plan-period">/ meal</span>
+              </div>
+            </div>
+            <ul class="plan-features">
+              <li><span class="feature-check">✓</span> Choice of any signature protein bowl</li>
+              <li><span class="feature-check">✓</span> 30g+ guaranteed clean vegetarian protein</li>
+              <li><span class="feature-check">✓</span> Freshly dispatched for lunchtime</li>
+              <li><span class="feature-check">✓</span> Eco-friendly compostable packaging</li>
+            </ul>
+            <a href="#" class="btn btn-secondary plan-select-btn" data-plan-name="Daily Trial Bowl" data-plan-price="₹199">
+              <span>Order Trial Meal</span>
+            </a>
+          </div>
+
+          <!-- Plan 2 (Featured) -->
+          <div class="plan-card featured">
+            <div class="featured-ribbon">MOST POPULAR WORKWEEK</div>
+            <div class="plan-head">
+              <h3 class="plan-name">5-Day Workweek Plan</h3>
+              <p class="plan-desc">Monday to Friday scheduled lunch delivery</p>
+              <div class="plan-price-wrap">
+                <span class="plan-price">₹949</span>
+                <span class="plan-period">/ week (~₹189 / meal)</span>
+              </div>
+            </div>
+            <ul class="plan-features">
+              <li><span class="feature-check">✓</span> 5 Days rotating chef's protein bowl menu</li>
+              <li><span class="feature-check">✓</span> FREE priority office delivery slot</li>
+              <li><span class="feature-check">✓</span> Pause or reschedule any day with 2 hrs notice</li>
+              <li><span class="feature-check">✓</span> Complete macro chart for your fitness tracking</li>
+            </ul>
+            <a href="#" class="btn btn-primary plan-select-btn" data-plan-name="5-Day Workweek Plan" data-plan-price="₹949/wk">
+              <span>Subscribe for Workweek</span>
+            </a>
+          </div>
+
+          <!-- Plan 3 -->
+          <div class="plan-card">
+            <div class="plan-head">
+              <h3 class="plan-name">20-Day Monthly Habit</h3>
+              <p class="plan-desc">Complete 4-week healthy habit transformation</p>
+              <div class="plan-price-wrap">
+                <span class="plan-price">₹3,699</span>
+                <span class="plan-period">/ month (~₹185 / meal)</span>
+              </div>
+            </div>
+            <ul class="plan-features">
+              <li><span class="feature-check">✓</span> 20 nutritious workday bowls (Mon-Fri)</li>
+              <li><span class="feature-check">✓</span> Fully customizable protein preferences</li>
+              <li><span class="feature-check">✓</span> Maximum monthly savings & zero delivery fee</li>
+              <li><span class="feature-check">✓</span> Unlimited pauses & flexible carryover</li>
+            </ul>
+            <a href="#" class="btn btn-secondary plan-select-btn" data-plan-name="20-Day Monthly Habit" data-plan-price="₹3,699/mo">
+              <span>Start Monthly Plan</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= GOVERNMENT CERTIFICATIONS & TRUST ================= -->
+    <section class="trust-section" id="verification">
+      <div class="container">
+        
+        <div class="trust-card-wrapper">
+          <div class="trust-grid">
+            
+            <!-- Left: FSSAI & Udyam Verified Badges -->
+            <div class="trust-badges-area">
+              
+              <!-- FSSAI Box with Scannable QR -->
+              <div class="trust-cert-box">
+                <img src="images/fssai-qr.png" alt="FSSAI Registration QR Code" class="fssai-qr-img">
+                <div class="cert-info">
+                  <h4>FSSAI Food Safety Registration</h4>
+                  <div class="cert-num">Registration No: 21526009002553</div>
+                  <p class="cert-sub">Scan the QR code to verify government food safety license and standards.</p>
+                </div>
+              </div>
+
+              <!-- Udyam Registration Box -->
+              <div class="trust-cert-box">
+                <div style="font-size: 2.2rem; background: var(--turmeric-soft); width: 78px; height: 78px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-warm); flex-shrink: 0;">
+                  🏛️
+                </div>
+                <div class="cert-info">
+                  <h4>Udyam MSME Registration</h4>
+                  <div class="cert-num">UDYAM-MH-18-0589443</div>
+                  <p class="cert-sub"><strong>MAA CHAMUNDA KRIPA BHOJAN</strong> • Registered Micro Enterprise, Govt. of India</p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right: Kitchen Address & WhatsApp Contact -->
+            <div class="address-box">
+              <h4>📍 Kitchen Location & Delivery Hub</h4>
+              <p class="address-text">
+                <strong>Nanubhai Parmar Chawl</strong>, Gogate Wadi, Aarey Road,<br>
+                Near Walia Appartment, Goregaon East,<br>
+                Mumbai - 400063, Maharashtra.
+              </p>
+
+              <div class="kitchen-contact-row" style="margin-bottom: 12px;">
+                <span>💬 WhatsApp Direct:</span>
+                <a href="https://wa.me/98819353450" target="_blank" style="color: #25D366; font-weight: 700; font-size: 1.05rem;">
+                  +91 98819 353450
+                </a>
+              </div>
+
+              <div class="kitchen-contact-row">
+                <span>🕒 Kitchen Dispatch:</span>
+                <span style="color: var(--turmeric-light); font-weight: 600;">Lunch: 12:00 PM – 2:30 PM | Dinner: 7:00 PM – 9:30 PM</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       PERSISTENT FLOATING HUD CONTROLLER (BOWL ANIMATION SCRUBBER & PLAY)
+       ========================================================================== -->
+  <div class="floating-stage-hud">
+    <button class="hud-play-btn" id="hudPlayBtn" aria-label="Toggle Animation Autoplay">▶</button>
+    <div class="hud-scrubber-track" id="hudScrubberTrack" title="Click anywhere to scrub animation">
+      <div class="hud-scrubber-fill" id="hudScrubberFill"></div>
+    </div>
+    <span class="hud-frame-readout" id="hudFrameReadout">BOWL: 001 / 240</span>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+            <img src="images/mck-logo.png" alt="MCK Bhojan" style="width: 44px; height: 44px; border-radius: 50%; background: #fff; padding: 2px;">
+            <div>
+              <h4>MCK Bhojan</h4>
+              <span style="font-size: 0.72rem; color: var(--turmeric-light);">Maa Chamunda Kripa Bhojan</span>
+            </div>
+          </div>
+          <p>
+            Wholesome, high-protein vegetarian meal bowls made with homestyle care, ancient millets, and fresh daily preparation.
+          </p>
+          <div class="status-pill" style="display: inline-flex;">
+            <span class="badge-pulse"></span>
+            <span>Goregaon East, Mumbai</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#anatomy">Deconstructed Anatomy</a></li>
+            <li><a href="#menu">Signature Bowls</a></li>
+            <li><a href="#plans">Meal Plans</a></li>
+            <li><a href="#verification">Govt. Registrations</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Government Details</h5>
+          <ul>
+            <li><span style="color: var(--turmeric-light); font-weight: 600;">FSSAI Reg:</span><br><span style="font-family: monospace; font-size: 0.85rem;">21526009002553</span></li>
+            <li style="margin-top: 10px;"><span style="color: var(--turmeric-light); font-weight: 600;">Udyam MSME:</span><br><span style="font-family: monospace; font-size: 0.85rem;">UDYAM-MH-18-0589443</span></li>
+            <li style="margin-top: 8px; font-size: 0.78rem; color: var(--text-muted);">Maa Chamunda Kripa Bhojan</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Kitchen Contact</h5>
+          <ul>
+            <li><a href="https://wa.me/98819353450" target="_blank" style="color: #25D366; font-weight: 600;">📱 WhatsApp: 98819353450</a></li>
+            <li style="margin-top: 8px; font-size: 0.82rem; color: var(--text-body); line-height: 1.5;">
+              📍 Nanubhai Parmar Chawl, Gogate Wadi, Aarey Road, Near Walia Appartment, Goregaon East (Mum - 400063)
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 MCK Bhojan (Maa Chamunda Kripa Bhojan). All Rights Reserved.</div>
+        <div style="display: flex; gap: 16px; font-size: 0.78rem;">
+          <span>100% Pure Vegetarian</span>
+          <span>•</span>
+          <span>Ancient Millets</span>
+          <span>•</span>
+          <span>FSSAI Certified</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
